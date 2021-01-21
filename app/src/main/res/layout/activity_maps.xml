@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.card.MaterialCardView
+        map:layout_constraintTop_toTopOf="parent"
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        map:cardCornerRadius="28dp"
+        map:cardElevation="4dp"
+        map:cardUseCompatPadding="true">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:layout_width="match_parent"
+                android:background="@null"
+                android:layout_height="wrap_content"/>
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MapsActivity" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        map:layout_constraintBottom_toTopOf="@+id/bottomView"
+        map:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="24dp"
+        android:onClick="myLocation"
+        android:backgroundTint="@color/white"
+        map:borderWidth="0dp"
+        android:drawableTint="@color/magic_mint"
+        android:id="@+id/fabMyLocation"
+        android:src="@drawable/ic_my_location"/>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomView"
+        map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="8dp"
+        android:padding="16dp">
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fabDraw"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:backgroundTint="@color/magic_mint"
+            android:onClick="drawPolyGon"
+            android:text="Generate Tagging"
+            android:textAlignment="center"
+            map:cornerRadius="8dp"
+            android:textColor="@color/black"
+            map:layout_constraintEnd_toEndOf="parent"
+            map:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlCompat" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fabClear"
+            android:layout_width="wrap_content"
+            map:cornerRadius="8dp"
+            android:layout_height="56dp"
+            android:backgroundTint="@color/blue_400"
+            android:textColor="@color/black"
+            android:onClick="clearMarker"
+            android:padding="8dp"
+            android:text="     Clear points     "
+            android:textAlignment="center"
+            map:layout_constraintStart_toStartOf="parent"
+            map:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlCompat" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonContinue"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:backgroundTint="@color/white"
+            android:text="Continue"
+            android:textColor="@color/black"
+            map:cornerRadius="8dp"
+            android:onClick="SendToServer"
+            android:layout_marginTop="5dp"
+            map:layout_constraintTop_toBottomOf="@+id/fabClear"
+            map:layout_constraintBottom_toBottomOf="parent"
+            map:layout_constraintEnd_toEndOf="parent"
+            map:layout_constraintStart_toStartOf="parent"
+
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
